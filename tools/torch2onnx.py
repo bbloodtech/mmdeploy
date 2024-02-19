@@ -12,10 +12,10 @@ from mmdeploy.utils import (get_ir_config, get_partition_config,
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Export model to ONNX.')
-    parser.add_argument('deploy_cfg', help='deploy config path')
-    parser.add_argument('model_cfg', help='model config path')
-    parser.add_argument('checkpoint', help='model checkpoint path')
-    parser.add_argument('img', help='image used to convert model model')
+    parser.add_argument('-deploy_cfg', default='configs/mmcls/classification_onnxruntime_static.py', help='deploy config path')
+    parser.add_argument('-model_cfg', default='../mmpretrain/work_dirs/resnet50_8xb16_chopsticks/resnet50_8xb16_chopsticks.py', help='model config path')
+    parser.add_argument('-checkpoint', default='../mmpretrain/work_dirs/resnet50_8xb16_chopsticks/epoch_90.pth', help='model checkpoint path')
+    parser.add_argument('-img', default='../mmpretrain/data/chopsticks/val/b/2023-4-14-15-23-46-428-2.bmp', help='image used to convert model model')
     parser.add_argument(
         '--work-dir',
         default='./work-dir',

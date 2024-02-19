@@ -300,7 +300,7 @@ class Classification(BaseTask):
             move_pipeline = [sub_pipeline] + move_pipeline
             transforms = transforms[:-1] + move_pipeline + transforms[-1:]
         for i, transform in enumerate(transforms):
-            if transform['type'] == 'PackClsInputs':
+            if transform['type'] == 'PackInputs':
                 meta_keys += transform[
                     'meta_keys'] if 'meta_keys' in transform else []
                 transform['meta_keys'] = list(set(meta_keys))

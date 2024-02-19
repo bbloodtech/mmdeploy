@@ -22,10 +22,10 @@ from mmdeploy.utils import (IR, Backend, get_backend, get_calib_filename,
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Export model to backends.')
-    parser.add_argument('deploy_cfg', help='deploy config path')
-    parser.add_argument('model_cfg', help='model config path')
-    parser.add_argument('checkpoint', help='model checkpoint path')
-    parser.add_argument('img', help='image used to convert model model')
+    parser.add_argument('-deploy_cfg', default='configs/mmcls/classification_onnxruntime_dynamic.py', help='deploy config path')
+    parser.add_argument('-model_cfg', default='../mmpretrain/work_dirs/resnet50_8xb16_chopsticks/resnet50_8xb16_chopsticks.py', help='model config path')
+    parser.add_argument('-checkpoint', default='../mmpretrain/work_dirs/resnet50_8xb16_chopsticks/20240217_160109/best_accuracy_top1_epoch_1.pth', help='model checkpoint path')
+    parser.add_argument('-img', default='2023_04_26_14_51_57_0000.bmp', help='image used to convert model model')
     parser.add_argument(
         '--test-img',
         default=None,
@@ -34,7 +34,7 @@ def parse_args():
         help='image used to test model')
     parser.add_argument(
         '--work-dir',
-        default=os.getcwd(),
+        default='mmdeploy_model/resnet50_cls',
         help='the dir to save logs and models')
     parser.add_argument(
         '--calib-dataset-cfg',
